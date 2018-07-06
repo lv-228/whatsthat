@@ -35,10 +35,10 @@ $app->post('/bot', function() use($app) {
 	$data = json_decode(file_get_contents('php://input'));
 
 	if(!$data)
-		return false;
+		return "false";
 
 	if($data->secret !== $config["mykey"] && $data->type !== 'confirmation')
-		return false;
+		return "false";
 
 	switch ($data->type) 
 	{
@@ -52,7 +52,7 @@ $app->post('/bot', function() use($app) {
 			break;
 	}
 
-	return false;
+	return "false";
 });
 
 $app->run();
