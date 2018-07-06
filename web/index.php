@@ -20,11 +20,6 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
   'monolog.logfile' => 'php://stderr',
 ));
 
-// Register view rendering
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/views',
-));
-
 // Our web handlers
 
 $app->get('/test', function() use($app) {
@@ -32,27 +27,27 @@ $app->get('/test', function() use($app) {
 });
 
 $app->post('/bot', function() use($app) {
-	// $data = json_decode(file_get_contents('php://input'));
+	$data = json_decode(file_get_contents('php://input'));
 
-	// if(!$data)
-	// 	return "false";
+	if(!$data)
+		return "false";
 
-	// if($data->secret !== $config["mykey"] && $data->type !== 'confirmation')
-	// 	return "false";
+	if($data->secret !== $config["mykey"] && $data->type !== 'confirmation')
+		return "false";
 
-	// switch ($data->type) 
-	// {
-	// 	case 'confirmation':
-	// 		return $confirmKey;
-	// 		break;
+	switch ($data->type) 
+	{
+		case 'confirmation':
+			return $confirmKey;
+			break;
 		
-	// 	case 'message_new':
-	// 		echo "Работает";
-	// 		return "ok";
-	// 		break;
-	// }
+		case 'message_new':
+			echo "Работает";
+			return "ok";
+			break;
+	}
 
-	return $confirmKey;
+	return false;
 });
 
 $app->run();
