@@ -32,27 +32,27 @@ $app->get('/test', function() use($app) {
 });
 
 $app->post('/bot', function() use($app) {
-	$data = json_decode(file_get_contents('php://input'));
+	// $data = json_decode(file_get_contents('php://input'));
 
-	if(!$data)
-		return "false";
+	// if(!$data)
+	// 	return "false";
 
-	if($data->secret !== $config["mykey"] && $data->type !== 'confirmation')
-		return "false";
+	// if($data->secret !== $config["mykey"] && $data->type !== 'confirmation')
+	// 	return "false";
 
-	switch ($data->type) 
-	{
-		case 'confirmation':
-			return $confirmKey;
-			break;
+	// switch ($data->type) 
+	// {
+	// 	case 'confirmation':
+	// 		return $confirmKey;
+	// 		break;
 		
-		case 'message_new':
-			echo "Работает";
-			return "ok";
-			break;
-	}
+	// 	case 'message_new':
+	// 		echo "Работает";
+	// 		return "ok";
+	// 		break;
+	// }
 
-	return "false";
+	return $confirmKey;
 });
 
 $app->run();
