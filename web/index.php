@@ -23,6 +23,10 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 // Our web handlers
 
+$app->get('/', function() use($app) {
+	return "Hello world!";
+});
+
 $app->post('/', function() use($app) {
 	$data = json_decode(file_get_contents('php://input'));
 
@@ -32,7 +36,8 @@ $app->post('/', function() use($app) {
 	if($data->secret !== $config["mykey"] && $data->type !== 'confirmation')
 		return false;
 
-	switch ($data->type) {
+	switch ($data->type) 
+	{
 		case 'confirmation':
 			return $config["confirmKey"];
 			break;
