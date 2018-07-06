@@ -31,7 +31,7 @@ $app->post('/bot', function() use($app) {
 	$data = json_decode(file_get_contents('php://input'));
 
 	if(!$data)
-		return false
+		return false;
 
 	if($data->secret !== $config["mykey"] && $data->type !== 'confirmation')
 		return false;
