@@ -8,6 +8,10 @@ $config = [
 	"confirmKey" => "86adc0ce"
 ];
 
+$confirmKey = "86adc0ce";
+$key = "6a58d330a308d2aac784e76afb96fd47cd3f703906ed74dc7ce6a63cf5e9518701b9aed9a78465bd4ead6";
+$mykey = "ZzQf212ASDgd51qw79";
+
 $app = new Silex\Application();
 $app['debug'] = true;
 
@@ -39,7 +43,7 @@ $app->post('/bot', function() use($app) {
 	switch ($data->type) 
 	{
 		case 'confirmation':
-			return $config["confirmKey"];
+			return $confirmKey;
 			break;
 		
 		case 'message_new':
