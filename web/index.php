@@ -39,6 +39,7 @@ $app->post('/', function() use($app) {
 		
 		case 'message_new':
 			echo "Работает";
+			return "ok";
 			break;
 	}
 
