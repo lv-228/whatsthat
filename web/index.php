@@ -23,11 +23,11 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 // Our web handlers
 
-$app->get('/', function() use($app) {
+$app->get('/test', function() use($app) {
 	return "Hello world!";
 });
 
-$app->post('/', function() use($app) {
+$app->post('/bot', function() use($app) {
 	$data = json_decode(file_get_contents('php://input'));
 
 	if(!$data)
