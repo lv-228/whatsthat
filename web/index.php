@@ -42,7 +42,7 @@ $app->post('/bot', function() use($app) {
 			break;
 		
 		case 'message_new':
-			echo "Работает";
+			//echo "Работает";
 			return "ok";
 			break;
 	}
