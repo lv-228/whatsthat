@@ -26,7 +26,7 @@ $app->get('/test', function() use($app) {
 	return "Hello world!";
 });
 
-$app->post('/bot', function() use($app) {
+$app->get('/bot', function() use($app) {
 	$data = json_decode(file_get_contents('php://input'));
 
 	if(!$data)
